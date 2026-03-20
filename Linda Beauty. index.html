@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linda Beauty | Salão de Beleza</title>
+  <meta name="description" content="Linda Beauty - Salão de beleza com marcação online, venda de acessórios femininos, produtos capilares, maquiagem, manicure, pedicure e muito mais." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to bottom, #fff5f8, #ffffff, #fff1f5);
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #fbcfe8;
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      color: #be185d;
+      font-weight: 700;
+    }
+
+    .logo p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 15px;
+      color: #374151;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #be185d;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e11d48;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #be123c;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid #f9a8d4;
+      color: #be185d;
+      padding: 11px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: #fff1f5;
+    }
+
+    .hero {
+      padding: 70px 0 50px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffe4ec;
+      color: #be185d;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #111827;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 28px;
+      max-width: 650px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .highlight-box {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #fbcfe8;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(190, 24, 93, 0.08);
+      font-size: 14px;
+    }
+
+    .hero-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hero-images .big {
+      height: 470px;
+      border-radius: 30px;
+      object-fit: cover;
+      width: 100%;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .right-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .right-stack img {
+      height: 220px;
+      border-radius: 30px;
+      object-fit: cover;
+      width: 100%;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .mini-card {
+      background: white;
+      border: 1px solid #fbcfe8;
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(190, 24, 93, 0.08);
+    }
+
+    .section {
+      padding: 70px 0 20px;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
+    .section-title span {
+      color: #e11d48;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-title h3 {
+      font-size: 38px;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      max-width: 700px;
+    }
+
+    .services-grid,
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 26px;
+      border: 1px solid #fbcfe8;
+      box-shadow: 0 12px 32px rgba(190, 24, 93, 0.08);
+    }
+
+    .card h4 {
+      font-size: 23px;
+      margin-bottom: 16px;
+      color: #111827;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .service-list li {
+      background: #fff1f5;
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .product-card img {
+      height: 260px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 22px;
+    }
+
+    .product-content h4 {
+      margin-bottom: 10px;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      padding: 70px 0;
+    }
+
+    .booking-box {
+      background: #111827;
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .booking-box h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .booking-box p {
+      color: #d1d5db;
+      margin-bottom: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #374151;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .booking-box input,
+    .booking-box select,
+    .booking-box textarea {
+      background: rgba(255,255,255,0.06);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .booking-box input::placeholder,
+    .booking-box textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .booking-box select option {
+      color: #111827;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      margin-top: 14px;
+    }
+
+    .booking-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .info-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid #fbcfe8;
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(190, 24, 93, 0.08);
+    }
+
+    .info-card h4 {
+      margin-bottom: 10px;
+      color: #111827;
+      font-size: 20px;
+    }
+
+    .pink-card {
+      background: linear-gradient(135deg, #e11d48, #ec4899);
+      color: white;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #fbcfe8;
+      margin-top: 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 40px 0;
+    }
+
+    footer h4,
+    footer h5 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer li {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 8px;
+      list-style: none;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .booking-grid,
+      .services-grid,
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .highlights,
+      .form-grid,
+      .hero-images {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .section-title h3,
+      .booking-box h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Linda Beauty</h1>
+        <p>Elegância, cuidado e beleza em cada detalhe</p>
+      </div>
+
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#marcacao">Marcação</a>
+        <a class="btn" href="https://wa.me/258856205685" target="_blank">Marcar Agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">Salão moderno e atendimento profissional</div>
+        <h2>Sua beleza merece um espaço feito para brilhar.</h2>
+        <p>
+          No <strong>Linda Beauty</strong>, você encontra serviços de cabelo, aplicação de próteses,
+          maquiagem, manicure, pedicure, venda de acessórios femininos, produtos capilares e muito mais,
+          tudo em um ambiente elegante, moderno e profissional.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn" href="#marcacao">Fazer Marcação Online</a>
+          <a class="btn-outline" href="#produtos">Ver Produtos</a>
+        </div>
+
+        <div class="highlights">
+          <div class="highlight-box">Marcação online rápida por WhatsApp</div>
+          <div class="highlight-box">Atendimento profissional e personalizado</div>
+          <div class="highlight-box">Serviços completos para realçar sua beleza</div>
+          <div class="highlight-box">Venda de acessórios e produtos capilares</div>
+        </div>
+      </div>
+
+      <div class="hero-images">
+        <img class="big" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1200&q=80" alt="Mulher com maquiagem profissional" />
+        <div class="right-stack">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80" alt="Serviços de salão de beleza" />
+          <div class="mini-card">
+            <h3 style="margin-bottom: 10px; color: #111827;">Experiência premium</h3>
+            <p style="color: #6b7280; font-size: 15px;">
+              Um espaço pensado para oferecer conforto, autoestima, sofisticação e beleza em cada atendimento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-title">
+        <span>Nossos serviços</span>
+        <h3>Tudo o que você precisa em um só salão</h3>
+        <p>
+          Oferecemos soluções completas em beleza, com serviços modernos, atendimento cuidadoso e foco total na sua satisfação.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <h4>Cabelo</h4>
+          <ul class="service-list">
+            <li>Tranças e penteados modernos</li>
+            <li>Aplicação de próteses capilares</li>
+            <li>Tratamentos e hidratação</li>
+            <li>Lavagem, secagem e finalização</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Beleza</h4>
+          <ul class="service-list">
+            <li>Maquiagem profissional</li>
+            <li>Design de sobrancelhas</li>
+            <li>Manicure de luxo</li>
+            <li>Pedicure e spa dos pés</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Loja</h4>
+          <ul class="service-list">
+            <li>Acessórios femininos</li>
+            <li>Produtos capilares</li>
+            <li>Extensões e complementos</li>
+            <li>Kits de cuidado pessoal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="produtos">
+    <div class="container">
+      <div class="section-title">
+        <span>Loja beauty</span>
+        <h3>Venda de acessórios e produtos capilares</h3>
+        <p>
+          Além dos nossos serviços, também disponibilizamos produtos e acessórios femininos selecionados para valorizar ainda mais o seu estilo.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <div class="card product-card">
+          <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=80" alt="Acessórios femininos" />
+          <div class="product-content">
+            <h4>Acessórios Femininos</h4>
+            <p>Brincos, pulseiras, bolsas e peças elegantes para complementar o seu visual com charme e sofisticação.</p>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Produtos capilares" />
+          <div class="product-content">
+            <h4>Produtos Capilares</h4>
+            <p>Shampoos, máscaras, óleos e finalizadores para manter o cabelo saudável, bonito e bem tratado.</p>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80" alt="Maquiagem e beleza" />
+          <div class="product-content">
+            <h4>Maquiagem & Beauty</h4>
+            <p>Produtos selecionados para realçar sua beleza e garantir um acabamento impecável em qualquer ocasião.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcacao">
+    <div class="container booking-grid">
+      <div class="booking-box">
+        <h3>Agende seu atendimento</h3>
+        <p>Preencha os dados abaixo e finalize a sua marcação diretamente pelo WhatsApp.</p>
+
+        <form id="bookingForm">
+          <div class="form-grid">
+            <input type="text" id="nome" placeholder="Seu nome" required />
+            <input type="text" id="telefone" placeholder="Seu telefone" required />
+
+            <select id="servico" required>
+              <option value="">Selecione o serviço</option>
+              <option>Tranças e penteados modernos</option>
+              <option>Aplicação de próteses capilares</option>
+              <option>Tratamentos e hidratação</option>
+              <option>Maquiagem profissional</option>
+              <option>Manicure</option>
+              <option>Pedicure</option>
+              <option>Produtos capilares</option>
+              <option>Acessórios femininos</option>
+            </select>
+
+            <input type="date" id="data" required />
+            <input type="time" id="hora" required />
+          </div>
+
+          <textarea id="mensagem" placeholder="Observações adicionais"></textarea>
+
+          <div class="booking-actions">
+            <button type="submit" class="btn">Confirmar Marcação</button>
+            <a class="btn-outline" href="https://wa.me/258856205685" target="_blank">Falar no WhatsApp</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="info-stack">
+        <div class="info-card">
+          <h4>Atendimento eficiente</h4>
+          <p>Faça a sua marcação online com rapidez e receba a confirmação diretamente pelo WhatsApp.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Serviços em destaque</h4>
+          <p>Próteses capilares, maquiagem profissional, manicure, pedicure, acessórios femininos e produtos capilares.</p>
+        </div>
+
+        <div class="info-card pink-card">
+          <h4>Linda Beauty</h4>
+          <p>Uma experiência de beleza completa, sofisticada e feita para valorizar você em cada detalhe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4 style="color:#be185d; font-size: 24px;">Linda Beauty</h4>
+        <p>Um salão de beleza moderno, profissional e preparado para oferecer atendimento com qualidade e sofisticação.</p>
+      </div>
+
+      <div>
+        <h5>Serviços</h5>
+        <ul>
+          <li>Cabelo e próteses</li>
+          <li>Maquiagem</li>
+          <li>Manicure e pedicure</li>
+          <li>Acessórios e produtos capilares</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Marcação online</h5>
+        <p>WhatsApp: +258 85 620 5685</p>
+        <a class="btn" href="https://wa.me/258856205685" target="_blank">Abrir WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const servico = document.getElementById('servico').value.trim();
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      const texto = `Olá, Linda Beauty! Gostaria de fazer uma marcação.%0A%0A` +
+        `Nome: ${nome}%0A` +
+        `Telefone: ${telefone}%0A` +
+        `Serviço: ${servico}%0A` +
+        `Data pretendida: ${data}%0A` +
+        `Hora pretendida: ${hora}%0A` +
+        `Observações: ${mensagem || 'Sem observações'}`;
+
+      const whatsappURL = `https://wa.me/258856205685?text=${texto}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+</body>
+</html>
